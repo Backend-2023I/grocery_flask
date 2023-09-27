@@ -209,6 +209,18 @@
             "quantity": 10,
             "price": 4.8,
             "type": "fruit"
+        },
+        "36": {
+            "name": "Barry",
+            "quantity": 4,
+            "price": 10,
+            "type": "Fruit"
+        },
+        "37": {
+            "name": "Banana",
+            "quantity": 2,
+            "price": 1.8,
+            "type": "Fruit"
         }
     }
 }
