@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from db import GroceryDB
 
 
@@ -7,10 +7,11 @@ db = GroceryDB()
 
 
 # view all grocery
-@app.route('/grocery')
+@app.route('/grocery', methods=["GET"])
 def all_grocery():
     """Get all grocery"""
-    pass
+    data = db.all()
+    return jsonify(data)
 
 
 # view add grocery
@@ -44,3 +45,11 @@ def all_grocery_by_price(price):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+# CRUD
+
+# Create
+# Read
+# Update
+# Delete
