@@ -11,7 +11,34 @@ db = GroceryDB()
 def all_grocery():
     """Get all grocery"""
     data = db.all()
-    return jsonify(data)
+    table = """
+    <body>
+    <h1>Grocery Store</h1>
+
+
+    <table border='1px'>
+    <tr>
+        <td>name</td>
+        <td>quantity</td>
+        <td>price</td>
+        <td>type</td>
+    </tr>"""
+    for i in data:
+        name = i['name']
+        quantity = i['quantity']
+        price = i['price']
+        type_ = i['type']
+        
+        s = f"""
+        <tr>
+            <td>{name}</td>
+            <td>{quantity}</td>
+            <td>{price}</td>
+            <td>{type_}</td>
+        </tr>"""
+
+        table += s
+    return table + "</table></body>"
 
 
 # view add grocery
