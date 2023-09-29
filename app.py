@@ -77,7 +77,12 @@ def all_grocery_by_price(price):
     data = db.get_by_price(price)
     return jsonify(data)
 
-
+@app.route("/grocery/update/<int:doc_id>", methods=["POST"])
+def update(doc_id):
+    "Update spesific product"
+    data = request.json
+    db.update_by_doc_id(doc_id, data)
+    return {"result": "Update product"}
 
 
 if __name__ == '__main__':

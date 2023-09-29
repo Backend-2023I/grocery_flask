@@ -74,3 +74,7 @@ class GroceryDB:
         data = self.table.search(User.price == price)
         return data
     
+    def update_by_doc_id(self, doc_id, data):
+        data = self.table.update(data, doc_ids=[doc_id])
+        return data
+    
