@@ -42,13 +42,16 @@ def all_grocery():
 
 
 # view add grocery
-@app.route('/grocery/add', methods=['POST'])
+@app.route('/grocery/add', methods=['POST', "GET"])
 def add_grocery():
     """Add a grocery"""
     
-    data = request.json
-    response = db.add(data)
-    return response
+    if request.method == "POST":
+        data = request.json
+        response = db.add(data)
+        return response
+    else:
+        return {"result": "Only post request"}
 
 
 # view all grocery by type
